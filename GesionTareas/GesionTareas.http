@@ -1,0 +1,6 @@
+@GesionTareas_HostAddress = http://localhost:5160
+
+GET {{GesionTareas_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
