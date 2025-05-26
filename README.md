@@ -6,7 +6,7 @@ Este proyecto implementa un sistema tipo "To-Do empresarial", diseñado para ges
 - [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download)
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) o LocalDB
 - [Visual Studio 2022+](https://visualstudio.microsoft.com/)
-- Entity Framework Core CLI (ya viene con el SDK)
+- Entity Framework Core
 
 ### ¿Cómo correr el proyecto?
 
