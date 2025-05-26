@@ -9,17 +9,17 @@ namespace Dominio.Interfaces
 {
     public class ServicioTareaDominio : IServicioTareasDominio
     {
-        private readonly IRepositorioTareas _tareaRepository;
+        private readonly IRepositorioTareas _repositorioTareas;
         private const int limiteTareas = 10;
 
-        public ServicioTareaDominio(IRepositorioTareas tareaRepository)
+        public ServicioTareaDominio(IRepositorioTareas tareaRepo)
         {
-            _tareaRepository = tareaRepository ?? throw new ArgumentNullException(nameof(tareaRepository));
+            _repositorioTareas = tareaRepo ?? throw new ArgumentNullException(nameof(tareaRepo));
         }
 
         public async Task ValidarLimiteAltaPrioridadAsync()
         {
-            var cantidadTareasAltaPrioridad = await _tareaRepository.ContarPendientes();
+            var cantidadTareasAltaPrioridad = await _repositorioTareas.ContarPendientes();
 
             if (cantidadTareasAltaPrioridad >= limiteTareas)
             {
@@ -31,7 +31,7 @@ namespace Dominio.Interfaces
         {
             if (tarea.EsDeAltaPrioridad())
             {
-                var cantidadTareasAltaPrioridad = await _tareaRepository.ContarPendientes();
+                var cantidadTareasAltaPrioridad = await _repositorioTareas.ContarPendientes();
                 return cantidadTareasAltaPrioridad < limiteTareas;
             }
 

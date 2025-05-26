@@ -12,4 +12,10 @@ namespace Aplicacion.Dtos
         public string OrdenarPor { get; set; } = "Prioridad";
         public string Direccion { get; set; } = "Desc";
     }
+    public enum OrdenTarea
+    {
+        Prioridad,
+        Vencimiento,
+        Creacion
+    }
 }

@@ -11,7 +11,7 @@ namespace Infraestructura.Data
 {
     public class ContextTareas : DbContext
     {
-        public ContextTareas(DbContextOptions<ContextTareas> options) : base(options)
+        public ContextTareas(DbContextOptions<ContextTareas> opciones) : base(opciones)
         {
         }
 

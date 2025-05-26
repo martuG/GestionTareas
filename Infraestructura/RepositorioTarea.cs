@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Infraestructura
 {
-    public class RepositorioTarea
+    public class RepositorioTareas
     {
         private readonly ContextTareas _context;
 
-        public RepositorioTarea(ContextTareas context)
+        public RepositorioTareas(ContextTareas context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }

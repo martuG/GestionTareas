@@ -38,9 +38,8 @@ namespace Infraestructura.Data
         private static async Task SeedDataAsync(ContextTareas context)
         {
             if (await context.Tareas.AnyAsync())
-                return; // Ya hay datos
+                return;
 
-            // Aquí puedes agregar datos de prueba si lo deseas
             await context.SaveChangesAsync();
         }
     }

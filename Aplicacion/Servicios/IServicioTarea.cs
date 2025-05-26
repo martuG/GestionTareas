@@ -15,5 +15,6 @@ namespace Aplicacion.Servicios
         Task<ResultadoOperacionDto> MarcarCompletadaAsync(int id);
         Task<TareaDto> ActualizarTareaAsync(int id, ActualizarTareaDto dto);
         Task<ResultadoOperacionDto> EliminarTareaAsync(int id);
+        Task<IEnumerable<TareaDto>> ListarAsync();
     }
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Aplicacion.Mappers;
 
 namespace Aplicacion.Servicios
 {
@@ -144,6 +145,11 @@ namespace Aplicacion.Servicios
                     ? tareas.OrderBy(t => t.Prioridad)
                     : tareas.OrderByDescending(t => t.Prioridad)
             };
+        }
+        public async Task<IEnumerable<TareaDto>> ListarAsync()
+        {
+            var tasks = await _tareaRepository.ListarTareasAsync();
+            return tasks.Select(MapTarea.ToDto);
         }
     }
 }
