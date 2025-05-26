@@ -14,9 +14,9 @@ namespace API.Controllers
     {
         private readonly IServicioTarea _taskService;
 
-        public ControladorTarea(IServicioTarea taskService)
+        public ControladorTarea(IServicioTarea tareaServicio)
         {
-            _taskService = taskService ?? throw new System.ArgumentNullException(nameof(taskService));
+            _taskService = tareaServicio ?? throw new System.ArgumentNullException(nameof(tareaServicio));
         }
 
         /// Obtiene todas las tareas con filtros opcionales

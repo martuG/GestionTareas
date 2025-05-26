@@ -1,11 +1,23 @@
+using Aplicacion.Servicios;
+using Dominio.Interfaces;
+using Infraestructura;
+using Infraestructura.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<ServicioTareaDominio>();
+builder.Services.AddScoped<IRepositorioTareas, RepositorioTareas>();
+builder.Services.AddScoped<IServicioTarea, ServicioTarea>();
+builder.Services.AddDbContext<ContextTareas>(options 
+       => options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionTareas")));
+
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 

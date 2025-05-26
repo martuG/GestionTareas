@@ -12,7 +12,7 @@
         public string Descripcion { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public DateTime FechaFinalizada { get; set; }
+        public DateTime? FechaFinalizada { get; set; }
         public Prioridad Prioridad { get; set; }
         public Estado Estado { get; set; }
 

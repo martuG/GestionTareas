@@ -20,8 +20,6 @@ namespace Infraestructura.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // Aplicar configuraciones
             modelBuilder.ApplyConfiguration(new ConfiguracionTarea());
         }
     }

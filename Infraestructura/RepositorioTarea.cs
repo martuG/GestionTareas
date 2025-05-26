@@ -1,4 +1,5 @@
 ﻿using Dominio.Entidades;
+using Dominio.Interfaces;
 using Infraestructura.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Infraestructura
 {
-    public class RepositorioTareas
+    public class RepositorioTareas : IRepositorioTareas
     {
         private readonly ContextTareas _context;
 
@@ -18,7 +19,7 @@ namespace Infraestructura
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<Tarea> ObtenerPorIdAsync(int id)
+        public async Task<Tarea> BuscarPorIdAsync(int id)
         {
             return await _context.Tareas.FirstOrDefaultAsync(t => t.Id == id);
         }
@@ -28,12 +29,12 @@ namespace Infraestructura
             return await _context.Tareas.ToListAsync();
         }
 
-        public async Task<IEnumerable<Tarea>> ObtenerPorEstadoAsync(Estado estado)
+        public async Task<IEnumerable<Tarea>> ListarEstadosAsync(Estado estado)
         {
             return await _context.Tareas.Where(t => t.Estado == estado).ToListAsync();
         }
 
-        public async Task<IEnumerable<Tarea>> ObtenerPorEstadoPrioridadAsync(Estado estado, Prioridad prioridad)
+        public async Task<IEnumerable<Tarea>> ListarEstadoPrioridad(Estado estado, Prioridad prioridad)
         {
             return await _context.Tareas.Where(t => t.Estado == estado && t.Prioridad == prioridad).ToListAsync();
         }
@@ -63,7 +64,7 @@ namespace Infraestructura
 
         public async Task EliminarAsync(int id)
         {
-            var tarea = await ObtenerPorIdAsync(id);
+            var tarea = await BuscarPorIdAsync(id);
             if (tarea != null)
             {
                 _context.Tareas.Remove(tarea);

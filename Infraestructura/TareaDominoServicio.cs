@@ -21,7 +21,7 @@ namespace Infraestructura
         public async Task ValidarTareaAsync(Tarea tarea)
         {
             // Verificar si hay más de 10 tareas pendientes de alta prioridad
-            var highPriorityPendingCount = await _repositorioTareas.ContarPendientes();
+            var highPriorityPendingCount = await _repositorioTareas.ContarTareasPendientesAsync();
 
             // Si la nueva tarea es de alta prioridad, incrementar el contador
             if (tarea.EsDeAltaPrioridad() && !tarea.EstaVencida())

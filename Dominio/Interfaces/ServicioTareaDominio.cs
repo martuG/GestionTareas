@@ -19,7 +19,7 @@ namespace Dominio.Interfaces
 
         public async Task ValidarLimiteAltaPrioridadAsync()
         {
-            var cantidadTareasAltaPrioridad = await _repositorioTareas.ContarPendientes();
+            var cantidadTareasAltaPrioridad = await _repositorioTareas.ContarTareasPendientesAsync();
 
             if (cantidadTareasAltaPrioridad >= limiteTareas)
             {
@@ -31,7 +31,7 @@ namespace Dominio.Interfaces
         {
             if (tarea.EsDeAltaPrioridad())
             {
-                var cantidadTareasAltaPrioridad = await _repositorioTareas.ContarPendientes();
+                var cantidadTareasAltaPrioridad = await _repositorioTareas.ContarTareasPendientesAsync();
                 return cantidadTareasAltaPrioridad < limiteTareas;
             }
 

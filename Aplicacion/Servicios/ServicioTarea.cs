@@ -45,7 +45,7 @@ namespace Aplicacion.Servicios
 
         public async Task<TareaDto> BuscarTareaPorIdAsync(int id)
         {
-            var tarea = await _tareaRepository.BuscarIdAsync(id);
+            var tarea = await _tareaRepository.BuscarPorIdAsync(id);
             if (tarea == null)
                 throw new TareaNoEncontrada(id);
 
@@ -74,7 +74,7 @@ namespace Aplicacion.Servicios
 
         public async Task<ResultadoOperacionDto> MarcarCompletadaAsync(int id)
         {
-            var tarea = await _tareaRepository.BuscarIdAsync(id);
+            var tarea = await _tareaRepository.BuscarPorIdAsync(id);
             if (tarea == null)
                 throw new TareaNoEncontrada(id);
 
@@ -93,7 +93,7 @@ namespace Aplicacion.Servicios
 
         public async Task<TareaDto> ActualizarTareaAsync(int id, ActualizarTareaDto dto)
         {
-            var tarea = await _tareaRepository.BuscarIdAsync(id);
+            var tarea = await _tareaRepository.BuscarPorIdAsync(id);
             if (tarea == null)
                 throw new TareaNoEncontrada(id);
 
